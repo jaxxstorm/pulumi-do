@@ -4,7 +4,7 @@ include build/common.mk
 PACK             := do
 PACKDIR          := sdk
 PROJECT          := github.com/jaxxstorm/pulumi-do
-NODE_MODULE_NAME := @jaxxstorm/digitalocean
+NODE_MODULE_NAME := @pulumi/digitalocean
 
 TFGEN           := pulumi-tfgen-${PACK}
 PROVIDER        := pulumi-resource-${PACK}

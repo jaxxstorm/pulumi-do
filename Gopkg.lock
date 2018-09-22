@@ -560,16 +560,15 @@
   version = "v0.15.3"
 
 [[projects]]
-  branch = "hardcoded_packages"
-  digest = "1:e32f7b527bc15d77104d7bde592a99f3e1a228adfaa06b358f4123120b03180c"
+  digest = "1:e474bdee1765ac62163cbe6f29ed0bd628be2e02d5a91d6659256fb13e358d97"
   name = "github.com/pulumi/pulumi-terraform"
   packages = [
     "pkg/tfbridge",
     "pkg/tfgen",
   ]
   pruneopts = "UT"
-  revision = "7862ebc5f670dfa33676377b16a864d09ea554ee"
-  source = "github.com/jaxxstorm/pulumi-terraform"
+  revision = "8808584154671f6480f5adff72da24f2a773cbfc"
+  version = "v0.15.1"
 
 [[projects]]
   branch = "master"
