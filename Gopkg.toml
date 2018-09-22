@@ -41,6 +41,11 @@
   name = "github.com/terraform-providers/terraform-provider-digitalocean"
   branch = "master"
 
+[[override]]
+  name = "github.com/pulumi/pulumi-terraform"
+  source = "github.com/jaxxstorm/pulumi-terraform"
+  branch = "hardcoded_packages"
+
 [prune]
   go-tests = true
   unused-packages = true

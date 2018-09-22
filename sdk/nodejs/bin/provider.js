@@ -20,7 +20,7 @@ class Provider extends pulumi.ProviderResource {
         {
             inputs["token"] = (args ? args.token : undefined) || utilities.getEnv("DO_TOKEN", "DIGITAL_OCEAN_TOKEN", "DIGITALOCEAN_TOKEN");
         }
-        super("digitalocean", name, inputs, opts);
+        super("do", name, inputs, opts);
     }
 }
 exports.Provider = Provider;

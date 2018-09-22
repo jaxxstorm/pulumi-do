@@ -526,7 +526,7 @@
   version = "v1.1.2"
 
 [[projects]]
-  digest = "1:59980be499b49efdc876a7eba5dbb6e9928cd73c78a6d634fec3871cf83e90f1"
+  digest = "1:05f7e23a39994a4cbf88aa4d4312a03a046788aa3dbe6aad8b18810b5e8b642b"
   name = "github.com/pulumi/pulumi"
   packages = [
     "pkg/diag",
@@ -550,6 +550,9 @@
     "pkg/util/rpcutil",
     "pkg/util/rpcutil/rpcerror",
     "pkg/workspace",
+    "sdk/go/pulumi",
+    "sdk/go/pulumi/asset",
+    "sdk/go/pulumi/config",
     "sdk/proto/go",
   ]
   pruneopts = "UT"
@@ -557,15 +560,16 @@
   version = "v0.15.3"
 
 [[projects]]
-  digest = "1:e474bdee1765ac62163cbe6f29ed0bd628be2e02d5a91d6659256fb13e358d97"
+  branch = "hardcoded_packages"
+  digest = "1:e32f7b527bc15d77104d7bde592a99f3e1a228adfaa06b358f4123120b03180c"
   name = "github.com/pulumi/pulumi-terraform"
   packages = [
     "pkg/tfbridge",
     "pkg/tfgen",
   ]
   pruneopts = "UT"
-  revision = "8808584154671f6480f5adff72da24f2a773cbfc"
-  version = "v0.15.1"
+  revision = "7862ebc5f670dfa33676377b16a864d09ea554ee"
+  source = "github.com/jaxxstorm/pulumi-terraform"
 
 [[projects]]
   branch = "master"
@@ -582,6 +586,14 @@
   pruneopts = "UT"
   revision = "1744e2970ca51c86172c8190fadad617561ed6e7"
   version = "v1.0.0"
+
+[[projects]]
+  digest = "1:516e71bed754268937f57d4ecb190e01958452336fa73dbac880894164e91c1f"
+  name = "github.com/spf13/cast"
+  packages = ["."]
+  pruneopts = "UT"
+  revision = "8965335b8c7107321228e3e3702cab9832751bac"
+  version = "v1.2.0"
 
 [[projects]]
   digest = "1:645cabccbb4fa8aab25a956cbcbdf6a6845ca736b2c64e197ca7cbb9d210b939"
@@ -940,10 +952,13 @@
   analyzer-version = 1
   input-imports = [
     "github.com/hashicorp/terraform/helper/schema",
+    "github.com/pkg/errors",
     "github.com/pulumi/pulumi-terraform/pkg/tfbridge",
     "github.com/pulumi/pulumi-terraform/pkg/tfgen",
     "github.com/pulumi/pulumi/pkg/tokens",
     "github.com/pulumi/pulumi/pkg/util/buildutil",
+    "github.com/pulumi/pulumi/sdk/go/pulumi",
+    "github.com/pulumi/pulumi/sdk/go/pulumi/config",
     "github.com/terraform-providers/terraform-provider-digitalocean/digitalocean",
   ]
   solver-name = "gps-cdcl"
