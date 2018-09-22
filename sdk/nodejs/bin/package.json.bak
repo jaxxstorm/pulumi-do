@@ -1,5 +1,5 @@
 {
-    "name": "@pulumi/do",
+    "name": "@jaxxstorm/do",
     "version": "${VERSION}",
     "description": "A Pulumi package for creating and managing Digital Ocean resources.",
     "keywords": [

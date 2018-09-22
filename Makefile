@@ -4,7 +4,7 @@ include build/common.mk
 PACK             := do
 PACKDIR          := sdk
 PROJECT          := github.com/jaxxstorm/pulumi-do
-NODE_MODULE_NAME := @pulumi/do
+NODE_MODULE_NAME := @pulumi/digitalocean
 
 TFGEN           := pulumi-tfgen-${PACK}
 PROVIDER        := pulumi-resource-${PACK}
@@ -21,7 +21,7 @@ TESTPARALLELISM := 10
 build::
 	go install -ldflags "-X github.com/jaxxstorm/pulumi-do/pkg/version.Version=${VERSION}" ${PROJECT}/cmd/${TFGEN}
 	go install -ldflags "-X github.com/jaxxstorm/pulumi-do/pkg/version.Version=${VERSION}" ${PROJECT}/cmd/${PROVIDER}
-	for LANGUAGE in "nodejs" ; do \
+	for LANGUAGE in "nodejs" "python" "go" ; do \
 		$(TFGEN) $$LANGUAGE --overlays overlays/$$LANGUAGE/ --out ${PACKDIR}/$$LANGUAGE/ || exit 3 ; \
 	done
 	cd ${PACKDIR}/nodejs/ && \
@@ -29,6 +29,17 @@ build::
 		yarn run tsc && \
 		cp ../../README.md ../../LICENSE package.json yarn.lock ./bin/ && \
 		sed -i.bak "s/\$${VERSION}/$(VERSION)/g" ./bin/package.json
+	cd ${PACKDIR}/python/ && \
+		if [ $$(command -v pandoc) ]; then \
+			pandoc --from=markdown --to=rst --output=README.rst ../../README.md; \
+		else \
+			echo "warning: pandoc not found, not generating README.rst"; \
+			echo "" > README.rst; \
+		fi && \
+		$(PYTHON) setup.py clean --all 2>/dev/null && \
+		rm -rf ./bin/ ../python.bin/ && cp -R . ../python.bin && mv ../python.bin ./bin && \
+		sed -i.bak -e "s/\$${VERSION}/$(PYPI_VERSION)/g" -e "s/\$${PLUGIN_VERSION}/$(VERSION)/g" ./bin/setup.py && \
+		cd ./bin && $(PYTHON) setup.py build sdist	
 
 lint::
 	$(GOMETALINTER) ./cmd/... resources.go | sort ; exit "$${PIPESTATUS[0]}"
@@ -43,6 +54,7 @@ install::
 		yarn install --offline --production && \
 		(yarn unlink > /dev/null 2>&1 || true) && \
 		yarn link
+	cd ${PACKDIR}/python/bin && $(PIP) install --user -e .
 
 test_all::
 	PATH=$(PULUMI_BIN):$(PATH) go test -v -cover -timeout 1h -parallel ${TESTPARALLELISM} ./examples

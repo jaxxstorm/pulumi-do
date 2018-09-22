@@ -1,0 +1,14 @@
+Metadata-Version: 1.2
+Name: pulumi-do
+Version: 0.0.0
+Summary: A Pulumi package for creating and managing Digital Ocean resources.
+Home-page: https://pulumi.io
+Author: UNKNOWN
+Author-email: UNKNOWN
+License: Apache-2.0
+Project-URL: Repository, https://github.com/jaxxstorm/pulumi-do
+Description-Content-Type: UNKNOWN
+Description: 
+        
+Keywords: pulumi do
+Platform: UNKNOWN
