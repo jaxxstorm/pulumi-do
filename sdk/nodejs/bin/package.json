@@ -1,0 +1,27 @@
+{
+    "name": "@pulumi/do",
+    "version": "0.1.0",
+    "description": "A Pulumi package for creating and managing Digital Ocean resources.",
+    "keywords": [
+        "pulumi",
+        "do"
+    ],
+    "homepage": "https://pulumi.io",
+    "repository": "https://github.com/jaxxstorm/pulumi-do",
+    "license": "Apache-2.0",
+    "scripts": {
+        "build": "tsc"
+    },
+    "dependencies": {
+        "@pulumi/pulumi": "^0.15.1",
+        "@types/express": "^4.16.0",
+        "read-package-json": "^2.0.13"
+    },
+    "devDependencies": {
+        "@types/node": "^8.0.25",
+        "typescript": "^2.6.2"
+    },
+    "pulumi": {
+        "resource": true
+    }
+}

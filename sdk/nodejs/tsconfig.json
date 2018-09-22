@@ -1,0 +1,42 @@
+{
+    "compilerOptions": {
+        "outDir": "bin",
+        "target": "es6",
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "declaration": true,
+        "sourceMap": true
+    },
+    "files": [
+        "config/index.ts",
+        "config/vars.ts",
+        "core/certificate.ts",
+        "core/dNSRecord.ts",
+        "core/domain.ts",
+        "core/droplet.ts",
+        "core/firewall.ts",
+        "core/floatingIP.ts",
+        "core/getCertificate.ts",
+        "core/getDNSRecord.ts",
+        "core/getDomain.ts",
+        "core/getDroplet.ts",
+        "core/getFloatingIP.ts",
+        "core/getImage.ts",
+        "core/getLoadBalancer.ts",
+        "core/getSSHKey.ts",
+        "core/getTag.ts",
+        "core/getVolume.ts",
+        "core/getVolumeSnapshot.ts",
+        "core/index.ts",
+        "core/loadBalancer.ts",
+        "core/sSHKey.ts",
+        "core/tag.ts",
+        "core/volume.ts",
+        "core/volumeAttachment.ts",
+        "core/volumeSnapshot.ts",
+        "index.ts",
+        "provider.ts",
+        "utilities.ts"
+    ]
+}
+

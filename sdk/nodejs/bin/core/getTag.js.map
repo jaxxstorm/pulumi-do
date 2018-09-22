@@ -1,0 +1,1 @@
+{"version":3,"file":"getTag.js","sourceRoot":"","sources":["../../core/getTag.ts"],"names":[],"mappings":";AAAA,wFAAwF;AACxF,iFAAiF;;AAEjF,yCAAyC;AAGzC,gBAAuB,IAAgB,EAAE,IAA2B;IAChE,OAAO,MAAM,CAAC,OAAO,CAAC,MAAM,CAAC,uBAAuB,EAAE;QAClD,MAAM,EAAE,IAAI,CAAC,IAAI;KACpB,EAAE,IAAI,CAAC,CAAC;AACb,CAAC;AAJD,wBAIC"}
